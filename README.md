@@ -17,7 +17,6 @@ java -jar target/quarkus-app/quarkus-run.jar
 Uber-jar: `./mvnw package -Dquarkus.package.jar.type=uber-jar`.
 
 ## Profiles & environment
-- Common: JDBC realm on `app_user`; CORS open to `http://localhost:5173`; JWT issuer must match tokens (`https://yourdomain.com/issuer` placeholder).
 - Dev (`%dev`): Dev Services DB, `drop-and-create`, loads `import.sql`.
 - Prod (`%prod`): Supply DB via env vars `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME`, `QUARKUS_DATASOURCE_PASSWORD`. Schema `update`; import disabled. Template path via `TEMPLATE_UPLOAD_PATH`. History files stored at `HISTORY_STORAGE_PATH`.
 
@@ -26,6 +25,6 @@ Uber-jar: `./mvnw package -Dquarkus.package.jar.type=uber-jar`.
 - Logs: default INFO in prod (adjust via `QUARKUS_LOG_LEVEL` if needed).
 
 ## Endpoints (summary)
-- Auth: `/auth/register`, `/auth/login`, `/auth/me`.
+- Auth: `/auth/register`, `/auth/me`.
 - Templates (admin): `/api/admin/templates/...` for upload/scan, define/save, update, status toggle, fetch.
 - Generation/history (auth): `/berita-acara/templates`, `/berita-acara/templates/{id}/form-structure`, `/berita-acara/generate-dynamic`, `/berita-acara/history`, `/berita-acara/history/{id}/file`.
